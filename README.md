@@ -20,9 +20,9 @@ yum install -y docker-ce
 
 2. 启动 docker
 ```shell
-// centos7+
-systemctl enable docker           # 开机自启
-systemctl start docker            # 启动
+# centos7+
+systemctl enable docker    # 开机自启
+systemctl start docker     # 启动
 
 docker -v
 ```
@@ -35,8 +35,8 @@ chmod +x /usr/local/bin/docker-compose
 
 4. 启动 php-nginx
 ```shell
-// cd 到 www 目录，拉取代码
-// 编辑 nginx/conf.d/host.conf
-// cd 到 docker-compose.yml 目录
+# cd 到 www 目录，拉取代码
+# 编辑 nginx/conf.d/host.conf
+# cd 到 docker-compose.yml 目录
 docker-compose up -d --build
 ```
