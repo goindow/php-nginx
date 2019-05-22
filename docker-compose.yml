@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  php:
+    image: "php:7.1-fpm"
+    ports:
+      - "9000:9000"
+    volumes:
+      #- /etc/localtime:/etc/localtime
+      - ./www:/var/www
+
+  nginx:
+    image: "nginx:1.15"
+    ports:
+      - "80:80"
+    volumes:
+      #- /etc/localtime:/etc/localtime
+      - ./www:/var/www
+      - ./nginx/logs:/var/logs
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
