@@ -1,14 +1,14 @@
-#php-nginx
+# php-nginx
 使用 docker-compose 编排 php-fpm 和 nginx 容器
 
-#说明
+# 说明
 -nginx/conf.d/ 虚拟主机配置目录
 -nginx/logs/ 虚拟主机日志目录
 -nginx/nginx.conf nginx 配置文件
 -www/html/ php-fpm bash 目录，没用视即可
 -www/ 代码目录
 
-##使用
+## 使用
 1.安装 docker-ce
 ```shell
 yum update
