@@ -2,4 +2,4 @@
 .vscode
 .DS_Store
 
-nginx/logs/*.log
+nginx/logs/*/*.log
