@@ -14,6 +14,7 @@
 ## docker-compose.yml
 - 如果需要时间同步，将备注开启
 - 如果无需进入容器，可将 nginx 和 php-fpm 换成 alpine 系列镜像
+- nginx、php-fpm 使用默认配置文件，请根据机器配置自行优化，相关文件及目录已挂载
 
 ## 使用
 1. 安装 docker-ce
