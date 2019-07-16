@@ -3,7 +3,7 @@ version: '2'
 services:
 
   php:
-    image: "php:7.1-fpm"
+    build: php
     ports:
       - "9000:9000"
     volumes:
@@ -13,8 +13,8 @@ services:
   nginx:
     image: "nginx:1.15"
     ports:
-      - "80:80"
-      - "443:443"
+      - "81:81"     # demo1
+      - "82:82"     # demo2
     volumes:
       #- /etc/localtime:/etc/localtime
       - ./www:/var/www
