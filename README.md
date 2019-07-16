@@ -1,11 +1,15 @@
 # php-nginx
-使用 docker-compose 编排 php-fpm 和 nginx 容器
+使用 docker-compose 编排 php-fpm 和 nginx 容器，支持多应用
 
 ## 目录说明
-- www/, 项目目录
-- nginx/logs/, 虚拟主机日志目录
-- nginx/conf.d/, 虚拟主机配置目录
+- www/, 工作区间，如果有多个应用，使用子目录区分
+- nginx/logs/, 虚拟主机日志目录，多应用同上
+- nginx/conf.d/, 虚拟主机配置目录，多应用同上
 - nginx/nginx.conf, nginx 配置文件
+
+## 镜像说明
+- nginx，官方 nginx:1.15
+- php，基于 php:7.1-fpm 的 Dockerfile 自定义镜像，已安装 gd 和 pdo_mysql 扩展
 
 ## docker-compose.yml
 - 如果需要时间同步，将备注开启
