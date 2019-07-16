@@ -44,7 +44,7 @@ chmod +x /usr/local/bin/docker-compose
 4. 启动 php-nginx
 ```shell
 # cd 到 www 目录，拉取代码
-# 编辑 nginx/conf.d/host.conf
+# 编辑 nginx/conf.d/*.conf
 # cd 到 docker-compose.yml 目录
 docker-compose up -d --build
 ```
