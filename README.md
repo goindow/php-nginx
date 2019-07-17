@@ -3,6 +3,7 @@
 
 ## 目录说明
 - www/, 工作区间，如果有多个应用，使用子目录区分
+- www/html/，php:7.1-fpm 的 Dockerfile 自动生成，忽略
 - nginx/logs/, 虚拟主机日志目录，多应用同上
 - nginx/conf.d/, 虚拟主机配置目录，多应用同上
 - nginx/nginx.conf, nginx 配置文件
