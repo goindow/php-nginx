@@ -9,13 +9,13 @@ RUN apt-get update && \
         libpng-dev \
         libjpeg-dev
 
-RUN docker-php-ext-install pdo_mysql
-
 RUN docker-php-ext-configure gd \
         --enable-gd-native-ttf \
-        --with-jpeg-dir=/usr/lib \
+        --with-jpeg-dir=/usr/include \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
+
+RUN docker-php-ext-install pdo_mysql
 
 RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
