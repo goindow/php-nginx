@@ -5,7 +5,7 @@
 - www/, 源码，如果有多个应用，使用子目录区分
 - nginx/logs/, 虚拟主机日志，多应用同上
 - nginx/conf.d/, 虚拟主机配置，多应用同上
-- php-fpm/, Dockerfile 及 php.ini、www.conf 等配置
+- php-fpm/, Dockerfile 及 php 相关配置
 
 ## 镜像说明
 - nginx，官方 nginx:1.15
