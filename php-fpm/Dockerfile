@@ -5,8 +5,8 @@ MAINTAINER huangyabin <76788424@qq.com>
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         libfreetype6-dev \
-		libjpeg62-turbo-dev \
-		libpng-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
         libjpeg-dev
 
 RUN docker-php-ext-install pdo_mysql
