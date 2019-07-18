@@ -2,17 +2,22 @@ version: '2'
 
 services:
 
-  php:
-    build: php
+  php-fpm:
+    build: php-fpm
     ports:
       - "9000:9000"
     volumes:
       #- /etc/localtime:/etc/localtime
       - ./www:/var/www
+      - ./php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php-fpm/php/php.ini-development:/usr/local/etc/php/php.ini-development
+      - ./php-fpm/php/php.ini-production:/usr/local/etc/php/php.ini-production
+      - ./php-fpm/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
 
   nginx:
     image: "nginx:1.15"
     ports:
+      - "80:81"     # demo1
       - "81:81"     # demo1
       - "82:82"     # demo2
     volumes:
