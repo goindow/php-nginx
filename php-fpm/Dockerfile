@@ -12,7 +12,8 @@ RUN apt-get update && \
 RUN docker-php-ext-configure gd \
         --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/include/ \
-        --with-freetype-dir=/usr/include/ && \
+        --with-png-dir=/usr/include/ \
+        --with-freetype-dir=/usr/include/freetype2/ && \
     docker-php-ext-install gd
 
 RUN docker-php-ext-install pdo_mysql
