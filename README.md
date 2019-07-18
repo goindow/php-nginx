@@ -10,11 +10,10 @@
 ## 镜像说明
 - nginx，官方 nginx:1.15
 - php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd 和 pdo_mysql 扩展，如果需要安装其他扩展，可修改 Dockerfile
-- nginx、php-fpm 使用默认配置文件，请根据机器配置自行优化，相关文件及目录已挂载
 
 ## docker-compose.yml
 - 如果需要时间同步，将备注开启
-- 如果无需进入容器，可将 nginx 和 php-fpm 换成 alpine 系列镜像
+- nginx、php-fpm 使用默认配置文件，请根据机器配置自行优化，相关文件及目录已挂载
 
 ## 使用
 1. 安装 docker-ce
