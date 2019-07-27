@@ -1,4 +1,4 @@
-#php-nginx
+# php-nginx
 使用 docker-compose 编排 php-fpm 和 nginx 容器，支持多应用
 
 ## 目录说明
