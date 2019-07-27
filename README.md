@@ -20,7 +20,7 @@
 - nginx.conf，worker_processes 4
 - nginx.conf，gzip 相关已开启
 - nginx.conf，log 日志重定向
-- www.conf，pm 相关优化，从上倒下，dynamic 100 75 50 100
+- [www.conf]，pm 相关优化，从上倒下，dynamic 100 75 50 100
 - php.ini，post_max_size = 1024M、upload_max_filesize = 1024M，大文件上传
 
 ## 使用
