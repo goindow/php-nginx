@@ -12,7 +12,8 @@
 - php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd 和 pdo_mysql 扩展，如果需要安装其他扩展，可修改 Dockerfile
 
 ## docker-compose.yml
-- 如果需要时间同步，将备注开启
+- 如果需要时间同步，将 localtime 备注开启（macos 无效，需要替换为对应的文件）
+- 如果默认网络冲突，需要配置网络，将 networks 相关备注开启
 
 ## nginx、php-fpm 配置优化
 > nginx、php-fpm 部分配置优化如下，请根据机器配置自行调整，相关文件及目录已挂载
