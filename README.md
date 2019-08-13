@@ -23,6 +23,7 @@
 - nginx.conf，log 日志重定向
 - www.conf，pm 相关优化，从上到下，dynamic 100 75 50 100
 - php.ini，post_max_size = 1024M、upload_max_filesize = 1024M，大文件上传
+- php.ini，date.timezone = Asia/Shanghai
 
 ## 使用
 1. 安装 docker-ce
