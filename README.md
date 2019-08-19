@@ -28,7 +28,7 @@
 ## php-fpm
 > 为了让容器内脚本可写目录和文件，如日志（runtime/、web/），容器目录需要设置 www-data 用户和组
 ```shell
-docker exec -it $containerIdorName chown -R www-data:www-data /var/www/bs-api
+docker exec -it $containerIdorName chown -R www-data:www-data /var/www
 // 脚本化
 ssh $ip "docker exec $containerIdorName chown -R www-data:www-data /var/www/$project"
 ```
