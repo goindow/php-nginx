@@ -30,7 +30,7 @@
 ```shell
 docker exec -it $containerIdorName chown -R www-data:www-data /var/www
 // 脚本化
-ssh $ip "docker exec $containerIdorName chown -R www-data:www-data /var/www/$project"
+ssh $ip "docker exec $containerIdorName chown -R www-data:www-data /var/www"
 ```
 
 ## 使用
