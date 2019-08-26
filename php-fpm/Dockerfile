@@ -2,9 +2,6 @@ FROM php:7.1-fpm
 
 MAINTAINER huangyabin <76788424@qq.com>
 
-## 使用 www-data 权限，否则 runtime、web 等目录无足够权限写
-RUN usermod -u 1000 www-data
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         libfreetype6-dev \
@@ -22,6 +19,7 @@ RUN docker-php-ext-configure gd \
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mcrypt
+RUN docker-php-ext-install zip
 ## 精确计算库
 #RUN docker-php-ext-install bcmath
 
@@ -29,7 +27,8 @@ RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 RUN rm -rf /var/www/html
 
-EXPOSE 9000
 WORKDIR /var/www
+
+EXPOSE 9000
 
 CMD ["php-fpm"]
