@@ -6,6 +6,7 @@ services:
     build: php-fpm
     ports:
       - "9000:9000"
+    restart: always
     volumes:
       - ./www:/var/www
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
@@ -20,6 +21,7 @@ services:
     ports:
       - "81:81"     # demo1
       - "82:82"     # demo2
+    restart: always
     volumes:
       - ./www:/var/www
       - ./nginx/logs:/var/logs
