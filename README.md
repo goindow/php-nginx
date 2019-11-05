@@ -36,7 +36,7 @@ ssh $ip "docker exec $containerIdorName chown -R www-data:www-data /var/www"
 ## 使用
 1. 安装 docker-ce
 ```shell
-yum update
+yum update -y
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
