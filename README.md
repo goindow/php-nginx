@@ -61,6 +61,7 @@ chmod +x /usr/local/bin/docker-compose
 4. 启动 php-nginx
 ```shell
 # cd 到 www 目录，拉取代码
-# 新增 nginx/conf.d/*.conf，配置虚拟主机
+# 新增 nginx/conf.d/${appName}.conf，配置虚拟主机
+# 新增 ningx/logs/${appName}，创建应用 nginx 日志目录
 docker-compose up -d --build
 ```
