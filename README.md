@@ -9,7 +9,7 @@
 
 ## 镜像说明
 - nginx，官方 nginx:1.15
-- php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip 扩展，如果需要安装其他扩展，可修改 Dockerfile
+- php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip、opcache 扩展，如果需要安装其他扩展，可修改 Dockerfile
 
 ## docker-compose.yml
 - 如果需要时间同步，将 localtime 备注开启（macos 无效，需要替换为对应的文件）
@@ -24,6 +24,7 @@
 - www.conf，pm 相关优化，从上到下，dynamic 100 75 50 100
 - php.ini，post_max_size = 1024M、upload_max_filesize = 1024M，大文件上传
 - php.ini，date.timezone = Asia/Shanghai
+- opcache.ini，enable 128M 60s
 
 ## php-fpm
 > 为了让容器内脚本可写目录和文件，如日志（runtime/、web/），容器目录需要设置 www-data 用户和组
