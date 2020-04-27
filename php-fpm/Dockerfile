@@ -15,7 +15,9 @@ RUN docker-php-ext-configure gd \
         --with-jpeg-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
         --with-freetype-dir=/usr/include/freetype2/ && \
-    docker-php-ext-install gd
+    docker-php-ext-install gd && \
+    docker-php-ext-install opcache && \
+    docker-php-ext-enable opcache
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mcrypt
