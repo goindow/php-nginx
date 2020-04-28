@@ -19,9 +19,10 @@
 > nginx、php-fpm 部分配置优化如下，请根据机器配置自行调整，相关文件及目录已挂载
 - nginx.conf，client_max_body_size 1024m，大文件上传
 - nginx.conf，worker_processes 4
+- nginx.conf, worker_connections 1024，**需要依据机器调优，最大文件句柄数，ulimit -n**
 - nginx.conf，gzip 相关已开启
 - nginx.conf，log 日志重定向
-- www.conf，pm 相关优化，从上到下，dynamic 100 75 50 100
+- www.conf，pm 相关优化，从上到下，dynamic 100 75 50 100，**需要依据机器调优，内存使用率**
 - php.ini，post_max_size = 1024M、upload_max_filesize = 1024M，大文件上传
 - php.ini，date.timezone = Asia/Shanghai
 - opcache.ini，enable 128M 60s
