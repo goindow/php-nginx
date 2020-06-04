@@ -67,3 +67,10 @@ chmod +x /usr/local/bin/docker-compose
 # 新增 ningx/logs/${appName}，创建应用 nginx 日志目录
 docker-compose up -d --build
 ```
+
+5. 配置 nginx 日志切割
+```
+# chmod +x sh/docker_nginx_log_cutting.sh
+# crontab
+0 0 * * * /data/php-nginx/sh/docker_nginx_log_cutting.sh php-nginx_nginx_1 /data/php-nginx/nginx/logs/ &> /dev/null
+```
