@@ -4,9 +4,9 @@
 # Version:       1.0
 # Date:          2020.6.2
 # Author:        hyb
-# Description:   docker nginx 日志切割、打包、删除过期压缩包脚本，支持多项目切割打包
+# Description:   nginx[docker] 容器日志切割、打包、删除过期压缩包脚本，支持多项目切割打包
 # Notes:         配合 crontab 计划任务，每天零时对日志打包
-#                0 0 * * * [PATH]/docker_nginx_log_cutting.sh container_name /var/www/project &> /dev/null
+#                0 0 * * * [PATH]/docker_nginx_log_cutting.sh container_name project_dir &> /dev/null
 # ----------------------------------------------------------------------------------------------------
 
 # .log 日志文件名
@@ -42,8 +42,8 @@ test -z $nginx_logs_dir && echo ${missing_parameter_tips//[]/nginx_logs_dir} && 
 test ! -d $nginx_logs_dir && echo "failed, $nginx_logs_dir is not a directory. is the nginx logs directory? " && exit 3
 # 多项目支持
 nginx_logs_dirs=($nginx_logs_dir/)
-for i in $(ls -d $nginx_logs_dir/*/ 2> /dev/null); do   
-    nginx_logs_dirs[${#nginx_logs_dirs[@]}]=$i
+for path in $(ls -d $nginx_logs_dir/*/ 2> /dev/null); do   
+    nginx_logs_dirs[${#nginx_logs_dirs[@]}]=$path
 done
 
 # 确保 docker daemon 正在运行
@@ -56,7 +56,7 @@ test $? -ne 0 && echo "failed, the container[$nginx_container_name] was not foun
 
 # 确保 container 基于 nginx
 nginx=$(docker exec $nginx_container_name bash -c "command -v nginx")
-test -z "$nginx" && echo "failed, nginx commands were not found in the container. is the nginx container?" && exit 6
+test -z $nginx && echo "failed, nginx commands were not found in the container. is the nginx container?" && exit 6
 
 # 确保 container 中的 nginx 正在运行
 nginx_pid_file="/var/run/nginx.pid"
@@ -67,8 +67,8 @@ test $? -ne 0 && echo "failed, nginx.pid file was not found." && exit 7
 for path in ${nginx_logs_dirs[@]}; do
     # access.log 处理
     # 切割打包
-    mv $path$access_log $path"access-${when}.log" &> /dev/null && \
-    tar -zcf $path"access-${when}.tar.gz" -C $path access-${when}.log --remove-file &> /dev/null
+    mv $path$access_log ${path}access-$when.log &> /dev/null && \
+    tar -zcf ${path}access-$when.tar.gz -C $path access-$when.log --remove-file &> /dev/null
     # 过期处理
     if test $? -eq 0; then
         access_expires=$(($(ls $path$access_tgz 2> /dev/null | wc -l) - $log_expires))
@@ -77,8 +77,8 @@ for path in ${nginx_logs_dirs[@]}; do
 
     # error.log 处理
     # 切割打包
-    mv $path$error_log $path$"error-${when}.log" &> /dev/null && \
-    tar -zcf $path"error-${when}.tar.gz" -C $path error-${when}.log --remove-file &> /dev/null    
+    mv $path$error_log ${path}error-$when.log &> /dev/null && \
+    tar -zcf ${path}error-$when.tar.gz -C $path error-$when.log --remove-file &> /dev/null    
     # 过期处理
     if test $? -eq 0; then
         error_expires=$(($(ls $path$error_tgz 2> /dev/null | wc -l) - $log_expires))
