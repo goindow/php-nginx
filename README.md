@@ -19,8 +19,8 @@
 > nginx、php-fpm 部分配置优化如下，请根据机器配置自行调整，相关文件及目录已挂载
 - nginx.conf
   - client_max_body_size 1024m，大文件上
-  - proxy_read_timeout 240s，慢脚本支持 for poxy（java crontab etc.）
-  - fastcgi_read_timeout 240s，慢脚本支持 for fastcgi（php-fpm crotab etc.）
+  - proxy_read_timeout 240s，慢脚本支持 for poxy（java etc.）
+  - fastcgi_read_timeout 240s，慢脚本支持 for fastcgi（php-fpm etc.）
   - worker_processes 4
   - worker_connections 1024，**需要依据机器调优，最大文件句柄数，ulimit -n**
   - gzip 相关已开启
