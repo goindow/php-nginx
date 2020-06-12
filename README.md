@@ -21,7 +21,7 @@
   - client_max_body_size 1024m，大文件上
   - proxy_read_timeout 240s，慢脚本支持 for poxy（java etc.）
   - fastcgi_read_timeout 240s，慢脚本支持 for fastcgi（php-fpm etc.）
-  - worker_processes 4
+  - worker_processes 4，**需要依据机器调优，CPU 核心数，grep 'model name' /proc/cpuinfo | wc -l**
   - worker_connections 1024，**需要依据机器调优，最大文件句柄数，ulimit -n**
   - gzip 相关已开启
   - log 日志重定向
