@@ -6,6 +6,7 @@
 - nginx/logs/, 虚拟主机日志，多应用同上
 - nginx/conf.d/, 虚拟主机配置，多应用同上
 - php-fpm/, Dockerfile 及 php 相关配置
+- sh/，shell 脚本
 
 ## 镜像说明
 - nginx，官方 nginx:1.15
@@ -34,6 +35,10 @@
   - date.timezone = Asia/Shanghai
 - opcache.ini
   - enable 128M 60s
+
+## docker_nginx_log_cutting.sh
+- 自动切割打包 ./nginx/logs/ 下的所有项目
+- 保存近 14 天的日志压缩包
 
 ## php-fpm
 > 为了让容器内脚本可写目录和文件，如日志（runtime/、web/），容器目录需要设置 www-data 用户和组
