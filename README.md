@@ -9,7 +9,7 @@
 
 ## 镜像说明
 - nginx，官方 nginx:1.15
-- php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip、opcache 扩展，如果需要安装其他扩展，可修改 Dockerfile
+- php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip、opcache、mongodb 扩展，如果需要安装其他扩展，可修改 Dockerfile
 
 ## docker-compose.yml
 - 如果需要时间同步，将 localtime 备注开启（macos 无效，需要替换为对应的文件）
