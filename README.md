@@ -29,7 +29,7 @@
   - pm 相关优化，从上到下，dynamic 100 75 50 100，**需要依据机器调优，内存使用率**
 - php.ini
   - memory_limit = 256M，for yii2 class autoload script
-  - post_max_size = 1024M
+  - post_max_size = 1024M，大文件上传
   - upload_max_filesize = 1024M，大文件上传
   - date.timezone = Asia/Shanghai
 - opcache.ini
