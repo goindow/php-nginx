@@ -8,7 +8,10 @@ RUN apt-get update && \
         libjpeg62-turbo-dev \
         libpng-dev \
         libjpeg-dev \
-        libmcrypt-dev
+        pkg-config \
+        libmcrypt-dev \
+        libcurl4-openssl-dev \
+        libssl-dev
 
 RUN docker-php-ext-configure gd \
         --enable-gd-native-ttf \
@@ -18,6 +21,9 @@ RUN docker-php-ext-configure gd \
     docker-php-ext-install gd && \
     docker-php-ext-install opcache && \
     docker-php-ext-enable opcache
+
+RUN pecl install mongodb && \
+    docker-php-ext-enable mongodb
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mcrypt
