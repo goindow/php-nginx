@@ -14,7 +14,7 @@
 
 ## docker-compose.yml
 - 生产环境将 restart 备注开启
-- 如果需要时间同步，将 localtime 备注开启（macos 无效，需要替换为对应的文件）
+- 如果需要时间同步，将 localtime 备注开启（不兼容 Darwin）
 - 如果默认网络冲突，需要配置网络，将 networks 相关备注开启
 
 ## nginx、php-fpm 配置优化
