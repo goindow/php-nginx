@@ -57,8 +57,20 @@ yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install -y docker-ce
 ```
+2. 配置容器日志
+```shell
+cat > /etc/docker/daemon.json << EOF
+{
+    "log-driver": "json-file",
+     "log-opts": {
+        "max-size": "50m",
+        "max-file": "1"
+     }
+}
+EOF
+```
 
-2. 启动 docker
+3. 启动 docker
 ```shell
 # centos7+
 systemctl enable docker    # 开机自启
@@ -67,13 +79,13 @@ systemctl start docker     # 启动
 docker -v
 ```
 
-3. 安装 docker-compose
+4. 安装 docker-compose
 ```shell
 curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-4. 启动 php-nginx
+5. 启动 php-nginx
 ```shell
 # cd 到 www 目录，拉取代码
 # 新增 nginx/conf.d/${appName}.conf，配置虚拟主机
@@ -81,7 +93,7 @@ chmod +x /usr/local/bin/docker-compose
 docker-compose up -d --build
 ```
 
-5. 配置 nginx 日志切割
+6. 配置 nginx 日志切割
 ```
 # chmod +x sh/docker_nginx_log_cutting.sh
 # crontab
