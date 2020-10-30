@@ -1,19 +1,18 @@
 version: '2'
 
 services:
-
   php-fpm:
     build: php-fpm
     ports:
       - "9000:9000"
-#    restart: always
     volumes:
-#      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro
       - ./www:/var/www
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
       - ./php-fpm/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ./php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.conf
       - ./php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+#      - /etc/localtime:/etc/localtime
+#    restart: always
 #    networks:
 #      - custom
 
@@ -22,16 +21,15 @@ services:
     ports:
       - "81:81"     # demo1
       - "82:82"     # demo2
-#    restart: always
     volumes:
       - ./www:/var/www
       - ./nginx/logs:/var/logs
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 #      - /etc/localtime:/etc/localtime
+#    restart: always
 #    networks:
 #      - custom
-
 
 #networks:
 #  custom:
