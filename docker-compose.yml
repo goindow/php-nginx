@@ -3,8 +3,6 @@ version: '2'
 services:
   php-fpm:
     build: php-fpm
-    ports:
-      - "9000:9000"
     volumes:
       - ./www:/var/www
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
