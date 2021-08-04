@@ -44,7 +44,7 @@
 > 为了让容器内脚本可写目录和文件，如日志（runtime/、web/），容器目录需要设置 www-data 用户和组
 ```shell
 docker exec -it $containerIdorName chown -R www-data:www-data /var/www
-// 脚本化
+# 脚本化
 ssh $ip "docker exec $containerIdorName chown -R www-data:www-data /var/www"
 ```
 
@@ -65,10 +65,10 @@ chmod +x /usr/local/bin/docker-compose
 ```
 
 3. 配置容器日志
-- registry-mirrors，设置镜像源
-- graph，设置 docker 运行时根目录，默认是 /var/lib/docker
-- log-x，日志相关配置
 ```shell
+# registry-mirrors，设置镜像源
+# graph，设置 docker 运行时根目录，默认是 /var/lib/docker
+# log-x，日志相关配置
 cat > /etc/docker/daemon.json << EOF
 {
     "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],
@@ -105,4 +105,3 @@ docker -v
 # 新增 ningx/logs/${appName}，创建应用 nginx 日志目录
 docker-compose up -d --build
 ```
-
