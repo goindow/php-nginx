@@ -65,9 +65,14 @@ chmod +x /usr/local/bin/docker-compose
 ```
 
 3. 配置容器日志
+- registry-mirrors，设置镜像源
+- graph，设置 docker 运行时根目录，默认是 /var/lib/docker
+- log-x，日志相关配置
 ```shell
 cat > /etc/docker/daemon.json << EOF
 {
+    "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"],
+    "graph": "/data/var/lib/docker",
     "log-driver": "json-file",
      "log-opts": {
         "max-size": "50m",
