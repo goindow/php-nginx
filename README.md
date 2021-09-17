@@ -68,7 +68,7 @@ chmod +x /usr/local/bin/docker-compose
 mkdir /etc/docker && mkdir /data/docker-runtime
 
 # registry-mirrors，设置镜像源
-# graph，设置 docker 运行时根目录，默认是 /var/lib/docker，如果 /var 不单独分区融资造成磁盘溢出，根据自己的操作系统分区情况修改
+# graph，设置 docker 运行时根目录，默认是 /var/lib/docker，如果 /var 不单独分区容易造成磁盘溢出，请根据自己的操作系统分区情况修改
 # log-x，日志相关配置
 cat > /etc/docker/daemon.json << EOF
 {
