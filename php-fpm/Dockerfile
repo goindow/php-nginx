@@ -22,7 +22,10 @@ RUN docker-php-ext-configure gd \
     docker-php-ext-install opcache && \
     docker-php-ext-enable opcache
 
-RUN pecl install mongodb && \
+## 因为老项目兼容性问题无法预估，这里没有使用升级到 php-fpm7.1+ 的方式。新项目推荐升级 php-fpm + 最新的 mongodb 扩展
+## mongodb 扩展从 1.12.0 开始放弃支持 php7.1，这里指定 1.11.1 版本
+#RUN pecl install mongodb && \
+RUN pecl install https://pecl.php.net/get/mongodb-1.11.1.tgz && \
     docker-php-ext-enable mongodb
 
 RUN docker-php-ext-install pdo_mysql
