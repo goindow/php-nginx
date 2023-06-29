@@ -15,7 +15,7 @@ services:
 #      - custom
 
   nginx:
-    image: "nginx:1.17.3"
+    image: "nginx:1.22.1-alpine"
     ports:
       - "81:81"     # demo1
       - "82:82"     # demo2
