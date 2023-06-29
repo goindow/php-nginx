@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.4.33-fpm
 
 MAINTAINER huangyabin <76788424@qq.com>
 
