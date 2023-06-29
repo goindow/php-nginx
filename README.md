@@ -9,8 +9,8 @@
 - sh/，shell 脚本
 
 ## 镜像说明
-- nginx，官方 nginx:1.17.3
-- php-fpm，基于 php:7.1-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip、opcache、mongodb 扩展，如果需要安装其他扩展，可修改 Dockerfile
+- nginx，官方 nginx:1.22.1-alpine
+- php-fpm，基于 php:7.4.33-fpm 的自定义镜像，除内置基础扩展外，该镜像已安装 gd、pdo_mysql、mcrpyt、zip、opcache、mongodb 扩展，如果需要安装其他扩展，可修改 Dockerfile
 
 ## docker-compose.yml
 - 生产环境将 restart 备注开启
